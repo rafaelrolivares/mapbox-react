@@ -5,8 +5,7 @@ import { connect } from 'react-redux'
 mapboxgl.accessToken = 'pk.eyJ1IjoicmFmYWVscm9saXZhcmVzIiwiYSI6Ik0zODVHd28ifQ.t2icfHsPjHjyUyAV5CiGew';
 
 export class Map extends React.Component {
-  map;
-
+  
   componentDidUpdate() {
     console.log('componentDidUpdate')
     this.setFill();

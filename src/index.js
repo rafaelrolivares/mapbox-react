@@ -6,6 +6,7 @@ import { setActiveOption } from './redux/action-creators'
 import Map from './components/map'
 import Toggle from './components/toggle'
 import Legend from './components/legend'
+//import { DrawingTool } from './components/drawingTool';
 
 class Application extends React.Component {
   render() {
