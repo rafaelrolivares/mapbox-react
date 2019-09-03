@@ -7,9 +7,6 @@ Add a data overlay to a map via React and use controls to visualize it different
 
 ### Run it
 
-    git clone https://github.com/mapbox/mapbox-react-examples.git
-
-    cd mapbox-react-examples/data-overlay-redux
     npm install
     npm start
 
