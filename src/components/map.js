@@ -4,15 +4,17 @@ import { connect } from 'react-redux'
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicmFmYWVscm9saXZhcmVzIiwiYSI6Ik0zODVHd28ifQ.t2icfHsPjHjyUyAV5CiGew';
 
-let Map = class Map extends React.Component {
+export class Map extends React.Component {
   map;
 
   componentDidUpdate() {
+    console.log('componentDidUpdate')
     this.setFill();
   }
 
   componentDidMount() {
     console.log("componentDidMount")
+
     // Load mapbox map:
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
@@ -58,7 +60,7 @@ let Map = class Map extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return {
     data: state.data,
     active: state.active

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-let Legend = class Legend extends React.Component {
+export class Legend extends React.Component {
 
   render() {
     const { name, description, stops } = this.props.active;
@@ -27,7 +27,7 @@ let Legend = class Legend extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return {
     active: state.active
   };

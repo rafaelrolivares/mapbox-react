@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-let Toggle = class Toggle extends React.Component {
+export class Toggle extends React.Component {
 
   render() {
     const { options, active } = this.props;
@@ -22,12 +22,10 @@ let Toggle = class Toggle extends React.Component {
         {options.map(renderOptions)}
       </div>
     );
-    
   }
-  
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return {
     options: state.options,
     active: state.active
