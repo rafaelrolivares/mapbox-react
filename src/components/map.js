@@ -1,23 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import mapboxgl from 'mapbox-gl'
 import { connect } from 'react-redux'
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA';
+mapboxgl.accessToken = 'pk.eyJ1IjoicmFmYWVscm9saXZhcmVzIiwiYSI6Ik0zODVHd28ifQ.t2icfHsPjHjyUyAV5CiGew';
 
 let Map = class Map extends React.Component {
   map;
-
-  static propTypes = {
-    data: PropTypes.object.isRequired,
-    active: PropTypes.object.isRequired
-  };
 
   componentDidUpdate() {
     this.setFill();
   }
 
   componentDidMount() {
+    console.log("componentDidMount")
     // Load mapbox map:
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
@@ -70,6 +65,4 @@ function mapStateToProps(state) {
   };
 }
 
-Map = connect(mapStateToProps)(Map);
-
-export default Map;
+export default connect(mapStateToProps)(Map);

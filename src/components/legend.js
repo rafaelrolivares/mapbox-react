@@ -1,12 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 let Legend = class Legend extends React.Component {
-
-  static propTypes = {
-    active: PropTypes.object.isRequired
-  };
 
   render() {
     const { name, description, stops } = this.props.active;
@@ -38,6 +33,5 @@ function mapStateToProps(state) {
   };
 }
 
-Legend = connect(mapStateToProps)(Legend);
+export default connect(mapStateToProps)(Legend);
 
-export default Legend;

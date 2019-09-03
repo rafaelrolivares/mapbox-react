@@ -1,17 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 let Toggle = class Toggle extends React.Component {
 
-  static propTypes = {
-    options: PropTypes.array.isRequired,
-    active: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired
-  };
-
   render() {
     const { options, active } = this.props;
+
+    console.log(`Active layer: ${active.name}`)
 
     const renderOptions = (option, i) => {
       return (
@@ -27,7 +22,9 @@ let Toggle = class Toggle extends React.Component {
         {options.map(renderOptions)}
       </div>
     );
+    
   }
+  
 }
 
 function mapStateToProps(state) {
@@ -37,6 +34,4 @@ function mapStateToProps(state) {
   };
 }
 
-Toggle = connect(mapStateToProps)(Toggle);
-
-export default Toggle;
+export default connect(mapStateToProps)(Toggle);
