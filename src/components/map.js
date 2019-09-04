@@ -46,8 +46,7 @@ export class Map extends React.Component {
       showZoom: true
     })
     this.map.addControl(navBar, 'top-right')
-    console.log(navBar)
-    
+        
     // Add drawing tool buttons
     const Draw = new MapboxDraw({
       displayControlsDefault: false,
@@ -80,12 +79,9 @@ export class Map extends React.Component {
 
      this.setFill();
     });
-
-  
   }
 
-
-
+  
   // establish how to colour the polygons based on the classification, which is described on the reducer.
   setFill() {
     const { property, stops } = this.props.active;

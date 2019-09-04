@@ -6,7 +6,7 @@ export class Toggle extends React.Component {
   render() {
     const { options, active } = this.props;
 
-    console.log(`Active layer: ${active.name}`)
+    console.log(`Active field: ${active.name}`)
 
     const renderOptions = (option, i) => {
       return (

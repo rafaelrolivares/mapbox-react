@@ -1,6 +1,5 @@
 import * as Constants from '../constants'
 import data from '../data.json'
-// dutch cities geojson at https://www.webuildinternet.com/articles/2015-07-19-geojson-data-of-the-netherlands/townships.geojson
 
 const options = [{
   name: 'Population',

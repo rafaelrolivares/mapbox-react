@@ -6,7 +6,7 @@ import { setActiveOption } from './redux/action-creators'
 import Map from './components/map'
 import Toggle from './components/toggle'
 import Legend from './components/legend'
-//import { DrawingTool } from './components/drawingTool';
+import Layers from './components/layers'
 
 class Application extends React.Component {
   render() {
@@ -16,6 +16,7 @@ class Application extends React.Component {
           <Map />
           <Toggle onChange={setActiveOption} />
           <Legend />
+          <Layers />
         </div>
       </Provider>
     );
