@@ -28,7 +28,11 @@ export class Map extends React.Component {
       zoom: 1.5
     });
 
-    const draw = new MapboxDraw({
+    // Add navigation control buttons
+    this.map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+    
+    // Add drawing tool buttons
+    const mapDraw = new MapboxDraw({
       displayControlsDefault: false,
       controls: {
       point: true, 
@@ -37,9 +41,12 @@ export class Map extends React.Component {
       trash: true
       }
       });
-    
-    this.map.addControl(draw, 'top-right')
 
+    this.map.addControl(mapDraw, 'top-right')
+
+    // Add full screen button
+    this.map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')}));
+    
     // load data from countries source (from props)
     this.map.on('load', () => {
       this.map.addSource('countries', {
