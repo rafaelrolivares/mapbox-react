@@ -8,6 +8,7 @@
     "react-scripts": "^1.1.5"
   },
   "dependencies": {
+    "@mapbox/mapbox-gl-draw": "^1.1.2",
     "mapbox": "^1.0.0-beta10",
     "mapbox-gl": "^0.39.1",
     "prop-types": "^15.7.2",

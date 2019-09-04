@@ -1,5 +1,7 @@
 import React from 'react'
 import mapboxgl from 'mapbox-gl'
+import MapboxDraw from '@mapbox/mapbox-gl-draw'
+import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css'
 import { connect } from 'react-redux'
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicmFmYWVscm9saXZhcmVzIiwiYSI6Ik0zODVHd28ifQ.t2icfHsPjHjyUyAV5CiGew';
@@ -24,6 +26,18 @@ export class Map extends React.Component {
       center: [5, 34],
       zoom: 1.5
     });
+
+    const draw = new MapboxDraw({
+      displayControlsDefault: false,
+      controls: {
+      point: true, 
+      line_string: true,
+      polygon: true,
+      trash: true
+      }
+      });
+    
+    this.map.addControl(draw, 'top-right')
 
     // load data from countries source (from props)
     this.map.on('load', () => {
