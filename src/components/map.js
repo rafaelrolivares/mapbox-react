@@ -3,8 +3,9 @@ import mapboxgl from 'mapbox-gl'
 import MapboxDraw from '@mapbox/mapbox-gl-draw'
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css'
 import { connect } from 'react-redux'
+import { config } from './config.js'
 
-mapboxgl.accessToken = 'pk.eyJ1IjoicmFmYWVscm9saXZhcmVzIiwiYSI6Ik0zODVHd28ifQ.t2icfHsPjHjyUyAV5CiGew';
+mapboxgl.accessToken = config.mapbox_key
 
 export class Map extends React.Component {
   
