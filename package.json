@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@mapbox/mapbox-gl-draw": "^1.1.2",
+    "lodash": "^4.17.15",
     "mapbox": "^1.0.0-beta10",
     "mapbox-gl": "^1.0.0",
     "prop-types": "^15.7.2",
