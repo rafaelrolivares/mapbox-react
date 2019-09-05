@@ -7,8 +7,6 @@ import { config } from './config.js'
 
 mapboxgl.accessToken = config.mapbox_key
 
-
-
 export class Map extends React.Component {
   
   componentDidUpdate() {
