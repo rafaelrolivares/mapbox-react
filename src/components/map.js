@@ -38,7 +38,7 @@ export class Map extends React.Component {
     // Disable rotation and other funny behaviours not really useful here.
     this.map.dragRotate.disable()
 
-    // Add navigation control buttons
+    // Add navigation control buttons, hide compass and show only zoom.
     const navBar = new mapboxgl.NavigationControl({
       showCompass: false,
       showZoom: true
