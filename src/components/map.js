@@ -11,12 +11,10 @@ mapboxgl.accessToken = config.mapbox_key
 export class Map extends React.Component {
   
   componentDidUpdate() {
-    console.log('componentDidUpdate')
     this.setFill();
   }
 
   componentDidMount() {
-    console.log("componentDidMount")
 
     // Limit the map to be seen only in the Netherlands
     // const boundBox = [
@@ -64,19 +62,29 @@ export class Map extends React.Component {
     
     // load data from countries source (from props)
     this.map.on('load', () => {
+      // Add country polygons
       this.map.addSource('countries', {
         type: 'geojson',
         data: this.props.data
       });
 
-
-
-      // add country layer to the map
       this.map.addLayer({
         id: 'countries',
         type: 'fill',
         source: 'countries'
       }, 'country-label-lg');
+
+      // Add city polygons
+      this.map.addSource('cities', {
+        type: 'geojson',
+        data: this.props.point_data
+      });
+
+      this.map.addLayer({
+        id: 'cities',
+        type: 'circle',
+        source: 'cities'
+      })
 
      this.setFill();
     });
@@ -86,7 +94,6 @@ export class Map extends React.Component {
   // establish how to colour the polygons based on the classification, which is described on the reducer.
   setFill() {
     const { property, stops } = this.props.active;
-    console.log(this.props)
     this.map.setPaintProperty('countries', 'fill-color', {
       property,
       stops
@@ -103,6 +110,7 @@ export class Map extends React.Component {
 const mapStateToProps = state => {
   return {
     data: state.data,
+    point_data: state.point_data,
     active: state.active
   };
 }

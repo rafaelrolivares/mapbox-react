@@ -1,5 +1,6 @@
 import { SET_ACTIVE_OPTION } from '../constants'
 import data from '../data_polygon.json'
+import point_data from '../data_point.json'
 
 const options = [{
   name: 'Population',
@@ -35,6 +36,7 @@ const options = [{
 
 const initialState = {
   data,
+  point_data,
   options,
   active: options[0]
 };
