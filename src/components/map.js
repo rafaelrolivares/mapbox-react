@@ -69,7 +69,9 @@ export class Map extends React.Component {
         data: this.props.data
       });
 
-      // add this as a layer to the map
+
+
+      // add country layer to the map
       this.map.addLayer({
         id: 'countries',
         type: 'fill',

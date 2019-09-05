@@ -1,9 +1,9 @@
 import { store } from './store'
-import * as Constants from '../constants'
+import { SET_ACTIVE_OPTION } from '../constants'
 
-export function setActiveOption(option) {
+export const setActiveOption = option => {
   store.dispatch({
-    type: Constants.SET_ACTIVE_OPTION,
+    type: SET_ACTIVE_OPTION,
     option
   });
 }

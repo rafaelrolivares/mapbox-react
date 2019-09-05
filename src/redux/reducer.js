@@ -1,4 +1,4 @@
-import * as Constants from '../constants'
+import { SET_ACTIVE_OPTION } from '../constants'
 import data from '../data_polygon.json'
 
 const options = [{
@@ -39,9 +39,9 @@ const initialState = {
   active: options[0]
 };
 
-function reducer(state = initialState, action) {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case Constants.SET_ACTIVE_OPTION:
+    case SET_ACTIVE_OPTION:
       return Object.assign({}, state, {
         active: action.option
       });
