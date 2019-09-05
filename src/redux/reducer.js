@@ -1,5 +1,5 @@
 import * as Constants from '../constants'
-import data from '../data.json'
+import data from '../data_polygon.json'
 
 const options = [{
   name: 'Population',
