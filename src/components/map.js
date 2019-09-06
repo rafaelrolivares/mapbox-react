@@ -27,7 +27,7 @@ export class Map extends React.Component {
     // Load mapbox map:
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/mapbox/streets-v9',
+      style: 'mapbox://styles/mapbox/streets-v9', // use a later version that takes more time to complaint about zoom.
       // zoom to the NL:
       // center: [5.25, 52.23],
       // zoom: 7,
@@ -39,7 +39,7 @@ export class Map extends React.Component {
     // Disable rotation and other funny behaviours not really useful here.
     this.map.dragRotate.disable()
 
-    // Create and style search box, filter results to NL.
+    // Create search box, filter results to NL.
     const geocoder = new MapboxGeocoder({ 
       accessToken: mapboxgl.accessToken, 
       mapboxgl: mapboxgl,
@@ -69,7 +69,7 @@ export class Map extends React.Component {
     // Add full screen button
     this.map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')}));
     
-    // load data from countries source (from props)
+    // load data from sources in props
     this.map.on('load', () => {
       // Add country polygons
       this.map.addSource('countries', {
@@ -83,7 +83,7 @@ export class Map extends React.Component {
         source: 'countries'
       }, 'country-label-lg');
 
-      // Add city polygons
+      // Add city points
       this.map.addSource('cities', {
         type: 'geojson',
         data: this.props.point_data
