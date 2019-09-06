@@ -3,6 +3,8 @@ import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import MapboxDraw from '@mapbox/mapbox-gl-draw'
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css'
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 import { connect } from 'react-redux'
 import { config } from './config.js'
 
@@ -36,6 +38,13 @@ export class Map extends React.Component {
 
     // Disable rotation and other funny behaviours not really useful here.
     this.map.dragRotate.disable()
+
+    // Create and style search box, filter results to NL.
+    const geocoder = new MapboxGeocoder({ 
+      accessToken: mapboxgl.accessToken, 
+      mapboxgl: mapboxgl,
+      countries: "NL" });
+    this.map.addControl(geocoder, 'top-right');
 
     // Add navigation control buttons, hide compass and show only zoom.
     const navBar = new mapboxgl.NavigationControl({
