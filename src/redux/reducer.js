@@ -34,10 +34,23 @@ const options = [{
   ]
 }]
 
+const pointDataFill = {
+  name: 'Inhabitants',
+  property: 'pop_other',
+  stops: [
+    [0, '#f8d5cc'],
+    [10000, '#f4bfb6'],
+    [50000, '#f1a8a5'],
+    [100000, '#ee8f9a'],
+    [500000, '#ec739b']
+  ]
+}
+
 const initialState = {
   data,
   point_data,
   options,
+  pointDataFill,
   active: options[0]
 };
 

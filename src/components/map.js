@@ -96,6 +96,7 @@ export class Map extends React.Component {
       })
 
      this.setFill();
+     this.setPointColor()
     });
   }
 
@@ -103,10 +104,18 @@ export class Map extends React.Component {
   // establish how to colour the polygons based on the classification, which is described on the reducer.
   setFill() {
     const { property, stops } = this.props.active;
+    console.log(this.props)
     this.map.setPaintProperty('countries', 'fill-color', {
       property,
       stops
     });    
+  }
+
+  setPointColor() {
+    const { property, stops } = this.props.pointDataFill
+    this.map.setPaintProperty('cities', 'circle-color', {
+      property, stops
+    })
   }
 
   render() {
@@ -120,6 +129,7 @@ const mapStateToProps = state => {
   return {
     data: state.data,
     point_data: state.point_data,
+    pointDataFill: state.pointDataFill,
     active: state.active
   };
 }
