@@ -6,13 +6,14 @@ import { connect } from 'react-redux'
 export class Layers extends React.Component {
 
   render() {
-    const { name, description, stops } = this.props.active;
+    const availableLayers = "ahhgjrgjhr";
+    const abc = this.props
+    console.log("this", abc)
 
-    const renderLayerList = (stop, i) => {
+    const renderLayerList = () => {
       return (
-        <div key={i} className='txt-s'>
-          <span className='mr6 round-full w12 h12 inline-block align-middle' style={{ backgroundColor: stop[1] }} />
-          <span>{`${stop[0].toLocaleString()}`}</span>
+        <div className='txt-s'>
+          <span>{availableLayers}</span>
         </div>
       );
     }
@@ -20,10 +21,10 @@ export class Layers extends React.Component {
     return (
       <div className="bg-white absolute bottom left ml12 mb36 py12 px12 shadow-darken10 round z1 wmax180">
         <div className='mb6'>
-          <h2 className="txt-bold txt-s block">{name}</h2>
-          <p className='txt-s color-gray'>{description}</p>
+          <h2 className="txt-bold txt-s block">Layers</h2>
+          <p className='txt-s color-gray'></p>
         </div>
-        {stops.map(renderLayerList)}
+        {renderLayerList()}
       </div>
     );
   }
@@ -31,7 +32,8 @@ export class Layers extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    active: state.active
+    active: state.active,
+    availableLayers: state.availableLayers
   };
 }
 
