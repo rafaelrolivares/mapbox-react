@@ -57,12 +57,12 @@ export class Map extends React.Component {
     const Draw = new MapboxDraw({
       displayControlsDefault: false,
       controls: {
-      point: true, 
-      line_string: true,
-      polygon: true,
-      trash: true
+        point: true, 
+        line_string: true,
+        polygon: true,
+        trash: true
       }
-      });
+    });
 
     this.map.addControl(Draw, 'top-right')
 
